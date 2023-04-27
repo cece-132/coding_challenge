@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_27_035700) do
+ActiveRecord::Schema.define(version: 2023_04_27_040205) do
+
+  create_table "bitlink_clicks", force: :cascade do |t|
+    t.string "bitlink"
+    t.string "user_agent"
+    t.string "timestamp"
+    t.string "referrer"
+    t.string "remote_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "urls", force: :cascade do |t|
     t.string "long_url"

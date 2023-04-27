@@ -7,9 +7,12 @@ namespace :load do
     task :urls => :environment do
       file = './db/data/encodes.csv'
       CSV.foreach(file, :headers => true) do |row|
-        Url.create!(row.to_hash)
+        hash = { :long_url => row['long_url'],
+                 :domain => row['domain'],
+                 :hash_value => row['hash']
+                }
+        Url.create!(hash)
       end
-      ActiveRecord::Base.connection.reset_pk_sequence!(:urls)
       puts "URL's Complete"
     end
 
