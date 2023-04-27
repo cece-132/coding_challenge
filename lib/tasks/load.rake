@@ -2,7 +2,7 @@ require 'csv'
 require 'json'
 
 namespace :load do
-    desc "Imports encodes CSV file into an ActiveRecord table"
+    desc "Imports encodes/decodes CSV file into an ActiveRecord table"
 
     task :urls => :environment do
       file = './db/data/encodes.csv'
@@ -20,7 +20,6 @@ namespace :load do
         BitlinkClick.create!(row.to_hash)
       end
       ActiveRecord::Base.connection.reset_pk_sequence!(:bitlink_clicks)
-      puts "'Items' Complete"
+      puts "Bitlink Clicks Complete"
     end
-  end
 end
