@@ -11,18 +11,17 @@ namespace :load do
                  :domain => row['domain'],
                  :hash_value => row['hash']
                 }
-        Url.create!(hash)
+        Url.create(hash)
       end
       puts "URL's Complete"
     end
 
     task :bitlink_clicks => :environment do
-      file = './db/data/decodes.json'
-      data = JSON.parse(file)
-      data.foreach(file) do |row|
-        BitlinkClick.create!(row.to_hash)
+      file_path = './db/data/decodes.json'
+      data = JSON.parse(File.read(file_path))
+      data.each do |row|
+        BitlinkClick.create(row)
       end
-      ActiveRecord::Base.connection.reset_pk_sequence!(:bitlink_clicks)
       puts "Bitlink Clicks Complete"
     end
 end
