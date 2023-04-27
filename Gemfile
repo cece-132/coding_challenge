@@ -42,6 +42,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'shoulda-matchers'
+  gem 'simplecov'
 end
 
 group :development do
