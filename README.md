@@ -1,7 +1,7 @@
 # README
 
 # Thoughts
-- okay I got really nervous thoughout this process and kinda borked this challenge. With that being said this is how I would redo this challenge if given more time to do so. That being said I learned a lot about how to improve the code going forward.(step 1: don't panic)
+- okay I got really nervous thoughout this process and kinda borked this challenge. With that being said this is how I would redo this challenge if given more time to do so. I also learned a lot about how to improve this code going forward. (step 1: don't panic)
 
 ## Structure
 - I think this challenge would have been better executed by using an api. The reason I say that is so that it makes it easier to return a json object. 
