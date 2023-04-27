@@ -1,5 +1,6 @@
 require 'csv'
 require 'json'
+require 'date'
 
 namespace :load do
     desc "Imports encodes/decodes CSV file into an ActiveRecord table"
@@ -20,8 +21,10 @@ namespace :load do
       file_path = './db/data/decodes.json'
       data = JSON.parse(File.read(file_path))
       data.each do |row|
-        BitlinkClick.create(row)
+        row['timestamp'] = Date.parse(row['timestamp'])
+        BitlinkClick.create(row).update_column(:timestamp, row['timestamp'] )
       end
       puts "Bitlink Clicks Complete"
     end
 end
+

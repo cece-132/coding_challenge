@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2023_04_27_040205) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bitlink_clicks", force: :cascade do |t|
     t.string "bitlink"
     t.string "user_agent"
